@@ -1,30 +1,45 @@
 import Image from 'next/image'
-import { HeaderStyled, LogoText } from './styles'
+import { 
+  ButtonsLeftSideHeaderContainerStyled, 
+  HeaderBackgroundStyled, HeaderStyled, 
+  LogoText, PersonCartIconsContainer } 
+from './styles'
+import ButtonCounter from './ButtonCounter'
 
 
 export default function Header() {
     return (
+      <HeaderBackgroundStyled>
         <HeaderStyled>
-            <Image 
-              src="/images/nav-toggle.svg" alt="teste" width={20.66}
-              height={18}
-              priority
-            />
+            <ButtonsLeftSideHeaderContainerStyled>
+              <ButtonCounter />
+              <Image 
+                src="/images/nav-toggle.svg" 
+                alt="Nav toggle icon button" 
+                width={20.66}
+                height={18}
+                priority
+                className="nav-toggle-button"
+              />
+            </ButtonsLeftSideHeaderContainerStyled>
             <LogoText>Lagus<span>_</span></LogoText>
-            <div >
+            <PersonCartIconsContainer>
               <Image 
-                src="/images/icon-person.svg" alt="teste" width={18}
-                height={18}
-                priority
-              />
-              <Image 
-                src="/images/icon-cart.svg" alt="teste"
-                height={18}
+                src="/images/icon-person.svg" 
+                alt="Person icon button" 
                 width={18}
+                height={18}
                 priority
               />
-            </div>
-
+              <Image 
+                src="/images/icon-cart.svg" 
+                alt="Cart icon button"
+                width={24}
+                height={18}
+                priority
+              />
+            </PersonCartIconsContainer>
         </HeaderStyled>
+      </HeaderBackgroundStyled>
     )
   }
